@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://coks2xmru6siv"]
+
+[ext_resource type="Texture2D" uid="uid://djk2bqxaatgnn" path="res://background.png" id="1_7piat"]
+[ext_resource type="Script" path="res://live_audio.gd" id="1_s71ts"]
+[ext_resource type="Texture2D" uid="uid://b4bvyrg5w3kpv" path="res://foreground.png" id="2_n6r7v"]
+
+[node name="Live_audio" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s71ts")
+
+[node name="volume_bar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_top = 341.0
+offset_right = 40.0
+offset_bottom = 499.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 20
+stretch_margin_top = 20
+stretch_margin_right = 20
+stretch_margin_bottom = 20
+texture_under = ExtResource("1_7piat")
+texture_progress = ExtResource("2_n6r7v")
+
+[node name="volume_text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 482.0
+offset_right = 20.0
+offset_bottom = 505.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0.0db"

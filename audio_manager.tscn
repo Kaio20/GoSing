@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl31u15o7l04k"]
+
+[ext_resource type="Script" path="res://audio_manager.gd" id="1_q55s5"]
+[ext_resource type="Script" path="res://Device Selection.gd" id="2_0yaxh"]
+[ext_resource type="AudioStream" uid="uid://cd806amuv52ij" path="res://new_audio_stream_microphone.tres" id="2_xh88b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pex6u"]
+bg_color = Color(0.768627, 0.560784, 0.0705882, 1)
+
+[node name="AudioManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("1_q55s5")
+
+[node name="Input" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xh88b")
+autoplay = true
+bus = &"Record"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pex6u")
+
+[node name="Device Selection" type="OptionButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.61
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_0yaxh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+text = "Microphone Input Device"
+horizontal_alignment = 1
+
+[connection signal="item_focused" from="Panel/Device Selection" to="Panel/Device Selection" method="_on_item_focused"]
+[connection signal="item_selected" from="Panel/Device Selection" to="Panel/Device Selection" method="_on_item_selected"]
