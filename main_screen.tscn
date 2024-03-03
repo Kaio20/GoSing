@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d23n5fj1uw6wd"]
+[gd_scene load_steps=5 format=3 uid="uid://d23n5fj1uw6wd"]
 
 [ext_resource type="PackedScene" uid="uid://cl31u15o7l04k" path="res://audio_manager.tscn" id="1_fb0tk"]
+[ext_resource type="Texture2D" uid="uid://cfwl6ri7i543r" path="res://Logo.svg" id="2_1s1bv"]
 [ext_resource type="VideoStream" path="res://videoplayback.ogv" id="2_131yh"]
 [ext_resource type="PackedScene" uid="uid://coks2xmru6siv" path="res://live_audio.tscn" id="3_oyyc2"]
 
@@ -20,6 +21,10 @@ offset_top = 298.0
 offset_right = 847.0
 offset_bottom = 298.0
 
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(140, 111)
+texture = ExtResource("2_1s1bv")
+
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 0
 offset_left = 108.0
@@ -31,7 +36,6 @@ ratio = 1.7778
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
 layout_mode = 2
 stream = ExtResource("2_131yh")
-autoplay = true
 
 [node name="Live_audio" parent="." instance=ExtResource("3_oyyc2")]
 offset_left = 551.0

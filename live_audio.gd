@@ -9,7 +9,9 @@ func _ready() -> void:
 	record_bus_index = AudioServer.get_bus_index("Record")
 	
 func _process(delta: float) -> void:
-	var sample = remap(AudioServer.get_bus_peak_volume_left_db(record_bus_index,0),-75,10,0,100) #buggy da er ohne remap erst deutlich später anfängt
+	var sample = remap(AudioServer.get_bus_peak_volume_left_db(record_bus_index,0),-75,10,0,100) 
+	#buggy da er ohne remap erst deutlich später anfängt
+	
 	var linear_sample = sample #db_to_linear(sample)
 	samples.push_front(linear_sample)
 	
