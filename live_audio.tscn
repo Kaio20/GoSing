@@ -6,16 +6,27 @@
 
 [node name="Live_audio" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_s71ts")
 
-[node name="volume_bar" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_top = 341.0
-offset_right = 40.0
-offset_bottom = 499.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="volume_bar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 fill_mode = 3
 nine_patch_stretch = true
 stretch_margin_left = 20
@@ -25,17 +36,7 @@ stretch_margin_bottom = 20
 texture_under = ExtResource("1_7piat")
 texture_progress = ExtResource("2_n6r7v")
 
-[node name="volume_text" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = 482.0
-offset_right = 20.0
-offset_bottom = 505.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="volume_text" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "0.0db"

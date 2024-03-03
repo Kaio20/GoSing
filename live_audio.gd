@@ -16,8 +16,9 @@ func _process(delta: float) -> void:
 	if samples.size() > 20:
 		samples.pop_back()
 	
-	volume_bar.value = average_sample_strength()
-	volume_text.text = str("%s db" % round(linear_to_db(average_sample_strength())) )
+	%volume_bar.value = average_sample_strength()
+	var db = round(linear_to_db(average_sample_strength())) if round(linear_to_db(average_sample_strength())) > 0 else 0
+	%volume_text.text = str("%s db" % db )
 	print(AudioServer.get_bus_peak_volume_left_db(record_bus_index,0))
 
 func average_sample_strength() -> float:
