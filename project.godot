@@ -19,6 +19,15 @@ config/icon="res://icon.svg"
 
 driver/enable_input=true
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="Go Sing"
+
+[gui]
+
+theme/custom="res://singer_theme.tres"

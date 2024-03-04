@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d23n5fj1uw6wd"]
+[gd_scene load_steps=6 format=3 uid="uid://d23n5fj1uw6wd"]
 
 [ext_resource type="PackedScene" uid="uid://cl31u15o7l04k" path="res://audio_manager.tscn" id="1_fb0tk"]
 [ext_resource type="Texture2D" uid="uid://cfwl6ri7i543r" path="res://Logo.svg" id="2_1s1bv"]
 [ext_resource type="VideoStream" path="res://videoplayback.ogv" id="2_131yh"]
 [ext_resource type="PackedScene" uid="uid://coks2xmru6siv" path="res://live_audio.tscn" id="3_oyyc2"]
+[ext_resource type="Texture2D" uid="uid://5oiueyg4ru3s" path="res://icon.svg" id="5_wklqc"]
 
 [node name="main_screen" type="Control"]
 layout_mode = 3
@@ -14,59 +15,81 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-layout_mode = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+ratio = 1.7777
+
+[node name="Background" type="CanvasLayer" parent="AspectRatioContainer"]
+
+[node name="Background Color" type="ColorRect" parent="AspectRatioContainer/Background"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-ratio = 1.7778
-
-[node name="Background" type="CanvasLayer" parent="AspectRatioContainer"]
-
-[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/Background"]
-offset_top = 0.00402832
-offset_right = 1152.0
-offset_bottom = 647.996
 color = Color(0.854902, 0.537255, 0.505882, 1)
 
 [node name="Logo" type="Sprite2D" parent="AspectRatioContainer/Background"]
-position = Vector2(140, 111)
+position = Vector2(48, 7)
 texture = ExtResource("2_1s1bv")
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Background"]
-offset_top = 0.00402832
-offset_right = 1152.0
-offset_bottom = 647.996
-theme_override_constants/margin_left = 120
+[node name="Foreground" type="CanvasLayer" parent="AspectRatioContainer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Foreground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Foreground/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="TopPlaceholder" type="TextureRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_wklqc")
+
+[node name="TVMarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer/Background/MarginContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer"]
+layout_mode = 2
+ratio = 1.7777
+
+[node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/AspectRatioContainer"]
+layout_mode = 2
+color = Color(1, 0.439216, 0.25098, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/AspectRatioContainer"]
 layout_mode = 2
 stream = ExtResource("2_131yh")
 autoplay = true
 expand = true
 
-[node name="Foreground" type="CanvasLayer" parent="AspectRatioContainer"]
-
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground"]
-offset_left = 1092.0
-offset_top = 569.0
-offset_right = 1142.0
-offset_bottom = 641.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Foreground/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Foreground/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="AudioManager" parent="AspectRatioContainer/Foreground/MarginContainer/VBoxContainer" instance=ExtResource("1_fb0tk")]
-visible = false
+[node name="AudioManager" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer" instance=ExtResource("1_fb0tk")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="Live_audio" parent="AspectRatioContainer/Foreground/MarginContainer/VBoxContainer" instance=ExtResource("3_oyyc2")]
+[node name="Live_audio" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer" instance=ExtResource("3_oyyc2")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="RightPlaceholder" type="TextureRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_wklqc")
+stretch_mode = 1

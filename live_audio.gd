@@ -1,6 +1,6 @@
 extends Control
-@onready var volume_bar = $volume_bar
-@onready var volume_text = $volume_text
+@onready var volume_bar = %volume_bar
+@onready var volume_text = %volume_text
 
 var record_bus_index: int
 var samples = []
