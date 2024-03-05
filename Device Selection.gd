@@ -15,9 +15,6 @@ func _ready() -> void:
 			select(i)
 			
 
-	#connect(item_selected,self,_on_item_selected())
-	
-
 
 func _on_item_selected(index: int) -> void:
 	AudioServer.set_input_device(devices[index])

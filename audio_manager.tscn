@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl31u15o7l04k"]
+[gd_scene load_steps=3 format=3 uid="uid://cl31u15o7l04k"]
 
-[ext_resource type="Script" path="res://audio_manager.gd" id="1_q55s5"]
 [ext_resource type="Script" path="res://Device Selection.gd" id="2_0yaxh"]
 [ext_resource type="AudioStream" uid="uid://cd806amuv52ij" path="res://new_audio_stream_microphone.tres" id="2_xh88b"]
 
@@ -13,7 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-script = ExtResource("1_q55s5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
