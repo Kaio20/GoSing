@@ -5,29 +5,41 @@
 [ext_resource type="Theme" uid="uid://b2w0hsrj6uuex" path="res://singer_theme.tres" id="2_04ly3"]
 [ext_resource type="Texture2D" uid="uid://b4bvyrg5w3kpv" path="res://foreground.png" id="2_n6r7v"]
 
-[node name="Live_audio" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="LiveAudio" type="HBoxContainer"]
+offset_right = 114.0
+offset_bottom = 73.0
 script = ExtResource("1_s71ts")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="SetDB" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="volume_bar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="volume_slider" type="VSlider" parent="SetDB"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="volume_slider_text" type="Label" parent="SetDB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_04ly3")
+text = "10"
+horizontal_alignment = 1
+
+[node name="ShowDB" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="volume_bar" type="TextureProgressBar" parent="ShowDB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_04ly3")
 fill_mode = 3
 nine_patch_stretch = true
@@ -38,8 +50,12 @@ stretch_margin_bottom = 20
 texture_under = ExtResource("1_7piat")
 texture_progress = ExtResource("2_n6r7v")
 
-[node name="volume_text" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="volume_text" type="Label" parent="ShowDB"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("2_04ly3")
-text = "0.0db"
+text = "db"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="SetDB/volume_slider" to="." method="_on_volume_slider_value_changed"]

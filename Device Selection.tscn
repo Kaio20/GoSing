@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3melxiitsl7s"]
+
+[ext_resource type="Script" path="res://Device Selection.gd" id="1_a04t0"]
+[ext_resource type="AudioStream" uid="uid://cd806amuv52ij" path="res://new_audio_stream_microphone.tres" id="2_a1o0u"]
+
+[node name="Device Selection" type="VBoxContainer"]
+
+[node name="Options Button" type="OptionButton" parent="."]
+layout_mode = 2
+text_overrun_behavior = 1
+clip_text = true
+allow_reselect = true
+script = ExtResource("1_a04t0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Microphone Input Device"
+horizontal_alignment = 1
+
+[node name="Input" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_a1o0u")
+autoplay = true
+bus = &"Record"
+
+[connection signal="item_focused" from="Options Button" to="Options Button" method="_on_item_focused"]
+[connection signal="item_selected" from="Options Button" to="Options Button" method="_on_item_selected"]
