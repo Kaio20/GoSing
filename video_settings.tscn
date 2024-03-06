@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://8xtslwf23rub"]
+
+[ext_resource type="Script" path="res://VideoPlayBack.gd" id="1_27l3p"]
+[ext_resource type="Texture2D" uid="uid://5oiueyg4ru3s" path="res://icon.svg" id="2_fxsb2"]
+[ext_resource type="Theme" uid="uid://b2w0hsrj6uuex" path="res://singer_theme.tres" id="3_feun3"]
+
+[node name="VideoSettings" type="HBoxContainer"]
+script = ExtResource("1_27l3p")
+
+[node name="Pause Button" type="Button" parent="."]
+layout_mode = 2
+text = "Pause"
+icon = ExtResource("2_fxsb2")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="STOP Button" type="Button" parent="."]
+layout_mode = 2
+text = "Stop
+"
+icon = ExtResource("2_fxsb2")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="SetDB" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="video_volume_slider" type="VSlider" parent="SetDB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+allow_lesser = true
+
+[node name="video_volume_slider_text" type="Label" parent="SetDB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_feun3")
+text = "100"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Pause Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="STOP Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="STOP Button" to="." method="_on_stop_button_pressed"]
+[connection signal="value_changed" from="SetDB/video_volume_slider" to="." method="_on_video_volume_slider_value_changed"]

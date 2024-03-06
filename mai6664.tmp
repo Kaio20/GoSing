@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d23n5fj1uw6wd"]
+[gd_scene load_steps=7 format=3 uid="uid://d23n5fj1uw6wd"]
 
 [ext_resource type="Theme" uid="uid://b2w0hsrj6uuex" path="res://singer_theme.tres" id="1_ii6jc"]
 [ext_resource type="Texture2D" uid="uid://cfwl6ri7i543r" path="res://Logo.svg" id="2_1s1bv"]
 [ext_resource type="VideoStream" path="res://videoplayback.ogv" id="2_131yh"]
-[ext_resource type="Script" path="res://main_screen.gd" id="2_ptaiv"]
 [ext_resource type="PackedScene" uid="uid://dlcg000fj1iih" path="res://microphone_settings.tscn" id="3_q4n0v"]
-[ext_resource type="PackedScene" uid="uid://8xtslwf23rub" path="res://video_settings.tscn" id="4_spora"]
+[ext_resource type="Script" path="res://VideoPlayBack.gd" id="4_ex7ci"]
 [ext_resource type="Texture2D" uid="uid://5oiueyg4ru3s" path="res://icon.svg" id="5_wklqc"]
 
 [node name="main_screen" type="Control"]
@@ -16,7 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ii6jc")
-script = ExtResource("2_ptaiv")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 0
@@ -67,9 +65,20 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
 layout_mode = 2
 
-[node name="VideoSettings" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer" instance=ExtResource("4_spora")]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer"]
 layout_mode = 2
+script = ExtResource("4_ex7ci")
+
+[node name="Button" type="Button" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer/Control"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pause"
+icon = ExtResource("5_wklqc")
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="TVMarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -80,30 +89,20 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer"]
 layout_mode = 2
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
 ratio = 1.7777
 
-[node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer/AspectRatioContainer"]
+[node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/AspectRatioContainer"]
 layout_mode = 2
 color = Color(1, 0.439216, 0.25098, 1)
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer/AspectRatioContainer"]
-unique_name_in_owner = true
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/AspectRatioContainer"]
 layout_mode = 2
 stream = ExtResource("2_131yh")
 autoplay = true
 expand = true
 bus = &"Video"
-
-[node name="StreamNameLabel" type="Label" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Hellodasa"
 
 [node name="RightVBox" type="VBoxContainer" parent="AspectRatioContainer/Foreground/HBoxContainer"]
 layout_mode = 2
@@ -113,3 +112,5 @@ size_flags_horizontal = 3
 layout_mode = 2
 texture = ExtResource("5_wklqc")
 stretch_mode = 1
+
+[connection signal="pressed" from="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer/Control/Button" to="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer/Control" method="_on_button_pressed"]

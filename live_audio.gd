@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	%volume_bar.value = average_sample_strength()
 	var db = round(linear_to_db(average_sample_strength())) if round(linear_to_db(average_sample_strength())) > 0 else 0
 	%volume_text.text = str("%sdb" % db )
+	#%volume_bar.max_value = %volume_slider.value
 	#print(sample)
 
 
@@ -38,5 +39,3 @@ func average_sample_strength() -> float:
 func _on_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(mute_bus_index, linear_to_db(value))
 	%volume_slider_text.text = str(value*10).pad_zeros(2)
-	
-	print(linear_to_db(value))
