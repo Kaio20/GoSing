@@ -5,7 +5,7 @@ var video_bus_index: int
 
 func _ready() -> void:
 	video_bus_index = AudioServer.get_bus_index("Video")
-	VideoPlayerLabel.text = VideoPlayer.get_stream_name()
+#	VideoPlayerLabel.text = VideoPlayer.get_stream_name()
 	
 func _on_button_pressed() -> void:
 	VideoPlayer.set_paused(not VideoPlayer.is_paused())

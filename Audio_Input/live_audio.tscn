@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://coks2xmru6siv"]
 
-[ext_resource type="Texture2D" uid="uid://djk2bqxaatgnn" path="res://background.png" id="1_7piat"]
-[ext_resource type="Script" path="res://live_audio.gd" id="1_s71ts"]
-[ext_resource type="Theme" uid="uid://b2w0hsrj6uuex" path="res://singer_theme.tres" id="2_04ly3"]
-[ext_resource type="Texture2D" uid="uid://b4bvyrg5w3kpv" path="res://foreground.png" id="2_n6r7v"]
+[ext_resource type="Script" path="res://Audio_Input/live_audio.gd" id="1_s71ts"]
+[ext_resource type="Theme" uid="uid://b2w0hsrj6uuex" path="res://Visuals/singer_theme.tres" id="2_04ly3"]
+[ext_resource type="Texture2D" uid="uid://djk2bqxaatgnn" path="res://Visuals/background.png" id="3_2o2cl"]
+[ext_resource type="Texture2D" uid="uid://b4bvyrg5w3kpv" path="res://Visuals/foreground.png" id="4_0dijj"]
 
 [node name="LiveAudio" type="HBoxContainer"]
 offset_right = 114.0
@@ -47,8 +47,8 @@ stretch_margin_left = 20
 stretch_margin_top = 20
 stretch_margin_right = 20
 stretch_margin_bottom = 20
-texture_under = ExtResource("1_7piat")
-texture_progress = ExtResource("2_n6r7v")
+texture_under = ExtResource("3_2o2cl")
+texture_progress = ExtResource("4_0dijj")
 
 [node name="volume_text" type="Label" parent="ShowDB"]
 unique_name_in_owner = true

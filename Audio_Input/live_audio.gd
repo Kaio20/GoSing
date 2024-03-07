@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	var db = round(linear_to_db(average_sample_strength())) if round(linear_to_db(average_sample_strength())) > 0 else 0
 	%volume_text.text = str("%sdb" % db )
 	#%volume_bar.max_value = %volume_slider.value
-	#print(sample)
+	# if AudioServer.get_bus_peak_volume_left_db(record_bus_index,0) >= 199: it breaks und die Hardware wurde nicht richtig angeschlossen.
 
 
 func average_sample_strength() -> float:

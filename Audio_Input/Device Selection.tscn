@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3melxiitsl7s"]
 
-[ext_resource type="Script" path="res://Device Selection.gd" id="1_a04t0"]
-[ext_resource type="AudioStream" uid="uid://cd806amuv52ij" path="res://new_audio_stream_microphone.tres" id="2_a1o0u"]
+[ext_resource type="Script" path="res://Audio_Input/Device Selection.gd" id="1_a04t0"]
+[ext_resource type="AudioStream" uid="uid://cd806amuv52ij" path="res://Audio_Input/new_audio_stream_microphone.tres" id="2_a1o0u"]
 
 [node name="Device Selection" type="VBoxContainer"]
 
