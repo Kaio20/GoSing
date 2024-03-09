@@ -13,7 +13,7 @@ config_version=5
 config/name="Go Sing"
 run/main_scene="res://Global/main_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Visuals/icon.svg"
+config/icon="res://Visuals/Logo_as_Icon.svg"
 
 [audio]
 
@@ -23,6 +23,7 @@ driver/enable_input=true
 [autoload]
 
 Global="*res://Global/Global.gd"
+YtDlp="*res://addons/godot-yt-dlp/src/yt_dlp.gd"
 
 [display]
 
@@ -32,6 +33,10 @@ window/size/viewport_height=1080
 [dotnet]
 
 project/assembly_name="Go Sing"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-yt-dlp/plugin.cfg")
 
 [gui]
 

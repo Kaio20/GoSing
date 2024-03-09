@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://8xtslwf23rub"]
+[gd_scene load_steps=5 format=3 uid="uid://8xtslwf23rub"]
 
 [ext_resource type="Script" path="res://VideoInput/VideoPlayBack.gd" id="1_27l3p"]
-[ext_resource type="Texture2D" uid="uid://5oiueyg4ru3s" path="res://Visuals/icon.svg" id="2_fxsb2"]
+[ext_resource type="Texture2D" uid="uid://ynmiph1w7v6" path="res://Visuals/Icons/pause.png" id="2_bahmw"]
+[ext_resource type="Texture2D" uid="uid://6ujs0e0hn0mp" path="res://Visuals/Icons/cross.png" id="3_fdw3n"]
 [ext_resource type="Theme" uid="uid://b2w0hsrj6uuex" path="res://Visuals/singer_theme.tres" id="3_feun3"]
 
 [node name="VideoSettings" type="HBoxContainer"]
@@ -10,7 +11,7 @@ script = ExtResource("1_27l3p")
 [node name="Pause Button" type="Button" parent="."]
 layout_mode = 2
 text = "Pause"
-icon = ExtResource("2_fxsb2")
+icon = ExtResource("2_bahmw")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
@@ -18,7 +19,7 @@ vertical_icon_alignment = 0
 layout_mode = 2
 text = "Stop
 "
-icon = ExtResource("2_fxsb2")
+icon = ExtResource("3_fdw3n")
 icon_alignment = 1
 vertical_icon_alignment = 0
 

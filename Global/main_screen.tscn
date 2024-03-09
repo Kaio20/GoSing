@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://d23n5fj1uw6wd"]
+[gd_scene load_steps=11 format=3 uid="uid://d23n5fj1uw6wd"]
 
 [ext_resource type="Theme" uid="uid://b2w0hsrj6uuex" path="res://Visuals/singer_theme.tres" id="1_ii6jc"]
 [ext_resource type="Texture2D" uid="uid://cfwl6ri7i543r" path="res://Visuals/Logo.svg" id="2_1s1bv"]
 [ext_resource type="Script" path="res://Global/main_screen.gd" id="2_ptaiv"]
 [ext_resource type="PackedScene" uid="uid://dlcg000fj1iih" path="res://Audio_Input/microphone_settings.tscn" id="3_q4n0v"]
+[ext_resource type="StyleBox" uid="uid://d2kowtpv2t4at" path="res://Visuals/Panel_Big_style_box_flat.tres" id="4_26v01"]
 [ext_resource type="PackedScene" uid="uid://8xtslwf23rub" path="res://VideoInput/video_settings.tscn" id="4_spora"]
 [ext_resource type="VideoStream" path="res://VideoInput/VideoTest.ogv" id="6_7xlyk"]
+[ext_resource type="PackedScene" uid="uid://40rdv2glxqro" path="res://Search and Stars/search_and_download.tscn" id="7_cg05g"]
+
+[sub_resource type="Gradient" id="Gradient_e7s5o"]
+offsets = PackedFloat32Array(0, 0.759657, 1)
+colors = PackedColorArray(0.517647, 0.4, 1, 1, 0.490196, 0.552941, 1, 0, 0.490196, 0.552941, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6l68b"]
+gradient = SubResource("Gradient_e7s5o")
+fill_from = Vector2(1, 1)
 
 [node name="main_screen" type="Control"]
 layout_mode = 3
@@ -24,7 +34,6 @@ offset_bottom = 40.0
 ratio = 1.7777
 
 [node name="Background" type="CanvasLayer" parent="AspectRatioContainer"]
-visible = false
 
 [node name="Background Color" type="ColorRect" parent="AspectRatioContainer/Background"]
 anchors_preset = 15
@@ -32,11 +41,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.854902, 0.537255, 0.505882, 1)
+color = Color(0.92549, 0.870588, 0.780392, 1)
 
 [node name="Logo" type="Sprite2D" parent="AspectRatioContainer/Background"]
-position = Vector2(48, 7)
+position = Vector2(1423.75, 443.814)
+scale = Vector2(1.65583, 1.65583)
 texture = ExtResource("2_1s1bv")
+
+[node name="Gradient Shower" type="TextureRect" parent="AspectRatioContainer/Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_ii6jc")
+texture = SubResource("GradientTexture2D_6l68b")
 
 [node name="Foreground" type="CanvasLayer" parent="AspectRatioContainer"]
 
@@ -55,22 +75,59 @@ size_flags_stretch_ratio = 3.0
 
 [node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_26v01")
 
 [node name="Top HBar" type="HBoxContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer"]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
+[node name="Microphone Settings" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
 layout_mode = 2
 
-[node name="Microphone Settings" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer2" instance=ExtResource("3_q4n0v")]
+[node name="Microphone Settings" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/Microphone Settings" instance=ExtResource("3_q4n0v")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
+[node name="Video Settings Margin Container" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
 layout_mode = 2
 
-[node name="VideoSettings" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer" instance=ExtResource("4_spora")]
+[node name="VideoSettings" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/Video Settings Margin Container" instance=ExtResource("4_spora")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Next Song:"
+
+[node name="ItemList" type="ItemList" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 4
+item_0/text = "helllo"
+item_1/text = "next Song please"
+item_2/text = "dasdas"
+item_3/text = "dasdsadas"
+
+[node name="Gradient Shower" type="TextureRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer3/VBoxContainer/ItemList"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_ii6jc")
+texture = SubResource("GradientTexture2D_6l68b")
+
+[node name="Filler MarginContainer4" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.22
 
 [node name="TVMarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -104,7 +161,7 @@ bus = &"Video"
 [node name="StreamNameLabel" type="Label" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Hi this should be the Stream Name one day"
+text = "Go Sing v 0.6"
 
 [node name="RightVBox" type="VBoxContainer" parent="AspectRatioContainer/Foreground/HBoxContainer"]
 layout_mode = 2
@@ -114,3 +171,12 @@ theme_override_constants/separation = 0
 [node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/RightVBox"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_26v01")
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/RightVBox/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_ii6jc")
+
+[node name="SearchAndDownload" parent="AspectRatioContainer/Foreground/HBoxContainer/RightVBox/PanelContainer/MarginContainer" instance=ExtResource("7_cg05g")]
+unique_name_in_owner = true
+layout_mode = 2
