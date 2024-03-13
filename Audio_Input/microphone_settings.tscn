@@ -9,13 +9,13 @@
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="LiveAudio" parent="HBoxContainer" instance=ExtResource("2_mm76c")]
-layout_mode = 2
-
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_gxxfu")
+
+[node name="LiveAudio" parent="HBoxContainer" instance=ExtResource("2_mm76c")]
+layout_mode = 2
 
 [node name="Device Selection" parent="." instance=ExtResource("3_bn56r")]
 layout_mode = 2

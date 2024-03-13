@@ -129,6 +129,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.22
 
+[node name="Test YP Setup" type="ColorRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/Filler MarginContainer4"]
+layout_mode = 2
+color = Color(0.901961, 0.0117647, 0.282353, 1)
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/Filler MarginContainer4/Test YP Setup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Program is still seting up, 
+please wait until this box disappers 
+(YT_DLP is then set upo"
+
 [node name="TVMarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -148,7 +169,7 @@ ratio = 1.7777
 
 [node name="ColorRect2" type="ColorRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer/AspectRatioContainer"]
 layout_mode = 2
-color = Color(1, 0.439216, 0.25098, 1)
+color = Color(0.92549, 0.870588, 0.780392, 1)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer/AspectRatioContainer"]
 unique_name_in_owner = true

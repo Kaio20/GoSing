@@ -10,4 +10,5 @@ func _ready() -> void:
 	if not YtDlp.is_setup():
 		YtDlp.setup()
 		await YtDlp.setup_completed
-		print("setup_complete")
+		$"AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/Filler MarginContainer4/Test YP Setup".visible = false
+		#DEBUG

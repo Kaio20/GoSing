@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://40rdv2glxqro"]
+[gd_scene load_steps=3 format=3 uid="uid://40rdv2glxqro"]
 
 [ext_resource type="Script" path="res://Global/SearchandDownload.gd" id="1_ap4wo"]
+[ext_resource type="Script" path="res://Search and Stars/Phone Keyboard.gd" id="2_a3vjy"]
 
 [node name="SearchAndDownload" type="VBoxContainer"]
 script = ExtResource("1_ap4wo")
@@ -25,6 +26,7 @@ text = "Download and Que"
 layout_mode = 2
 size_flags_vertical = 3
 columns = 3
+script = ExtResource("2_a3vjy")
 
 [node name="Button" type="Button" parent="Phone Keyboard GridContainer"]
 layout_mode = 2
@@ -82,3 +84,4 @@ size_flags_vertical = 3
 text = "WVYZ"
 
 [connection signal="pressed" from="DownloadButton" to="." method="_on_download_button_pressed"]
+[connection signal="pressed" from="Phone Keyboard GridContainer/Button2" to="Phone Keyboard GridContainer" method="_on_button_2_pressed"]

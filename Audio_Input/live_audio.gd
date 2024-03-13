@@ -11,7 +11,7 @@ func _ready() -> void:
 	mute_bus_index = AudioServer.get_bus_index("Mute")
 	%volume_slider.value = db_to_linear(AudioServer.get_bus_volume_db(mute_bus_index))
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var sample = remap(AudioServer.get_bus_peak_volume_left_db(record_bus_index,0),-72,6,0,78)
 	var linear_sample = remap(sample,0,72,0,100)
 	
