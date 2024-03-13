@@ -196,14 +196,14 @@ class Download extends RefCounted:
 				})
 			var ffmpeg_path: String = ProjectSettings.globalize_path("user://ffmpeg.exe")
 			
+			
 			#convert with settings recommended by https://docs.godotengine.org/en/stable/tutorials/animation/playing_videos.html#doc-playing-videos-recommended-theora-encoding-settings
-			#OS.execute(ffmpeg_path,configuration,,)
-			OS.execute(ffmpeg_path, ["-i", source_video_file_path, "-q:v", "6", "-q:a", "6", target_video_file_path], output, true)
+			#behind v its the video quality and behind a is the audio quaility
+			print("started conversion")
+			OS.execute(ffmpeg_path, ["-i", source_video_file_path, "-q:v", "4", "-q:a", "9", target_video_file_path], output, true)
 			print(ffmpeg_path)
 			print(source_video_file_path)
-			print(target_video_file_path)
 		self._thread_finished.call_deferred()
-	
 	
 	func _thread_finished():
 		_status = Status.COMPLETED

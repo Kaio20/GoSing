@@ -177,6 +177,7 @@ layout_mode = 2
 stream = ExtResource("6_7xlyk")
 autoplay = true
 expand = true
+loop = true
 bus = &"Video"
 
 [node name="StreamNameLabel" type="Label" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/TVMarginContainer/VBoxContainer"]

@@ -12,3 +12,14 @@ func _ready() -> void:
 		await YtDlp.setup_completed
 		$"AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/Filler MarginContainer4/Test YP Setup".visible = false
 		#DEBUG
+
+# TO DO
+#loading animation beim convertieren
+#Bug fixen
+# mehr Spieler einfügen
+# Beispiel sein für Godot für mehr INput und auch für andere Videoformate
+# Trotzdem veröffentlichen
+#Handy  Tastatur probieren
+#Game Pad Support hinzufügen
+#Echtes Starter Screen
+
