@@ -108,10 +108,10 @@ text = "Next Song:"
 layout_mode = 2
 size_flags_vertical = 3
 item_count = 4
-item_0/text = "helllo"
-item_1/text = "next Song please"
-item_2/text = "dasdas"
-item_3/text = "dasdsadas"
+item_0/text = "First Song - Hello"
+item_1/text = "Second Song - You"
+item_2/text = "Third Song - Darling"
+item_3/text = "Fourth Song - Cutie"
 
 [node name="Gradient Shower" type="TextureRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/MarginContainer3/VBoxContainer/ItemList"]
 layout_mode = 1
@@ -127,7 +127,7 @@ texture = SubResource("GradientTexture2D_6l68b")
 [node name="Filler MarginContainer4" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 4.22
+size_flags_stretch_ratio = 3.55
 
 [node name="Test YP Setup" type="ColorRect" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2/PanelContainer/Top HBar/Filler MarginContainer4"]
 layout_mode = 2
@@ -147,7 +147,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Program is still seting up, 
-please wait until this box disappers 
+please wait before doing anything until this box disappers 
 (YT_DLP is then set upo"
 
 [node name="TVMarginContainer" type="MarginContainer" parent="AspectRatioContainer/Foreground/HBoxContainer/VBoxContainer2"]
